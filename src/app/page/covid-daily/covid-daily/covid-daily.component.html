@@ -1,0 +1,41 @@
+  <div class="row">
+    <div class="col-lg-12" *ngFor="let list of _lists">
+      <!-- <h1 class="text-center">
+        ข้อมูล Covid19
+      </h1> -->
+      <p class="text-left">ข้อมูล ณ วันที่ : {{ list.update_date | date:'dd-MM-yyyy HH:mm:ss' }} น.</p>
+      <p class="text-left">แหล่งที่มาของข้อมูล : https://covid19.ddc.moph.go.th</p>
+    </div>
+    <div class="col-lg-12">
+      <div class="card" id="c_daily">
+        <div class="card-body" *ngFor="let list of _lists">
+          <!-- จำนวนผู้ติดเชื้อวันนี้ : {{list.txn_date}} -->
+          <h2>รายงานสถานการณ์ COVID-19 ประจำวัน</h2>
+          <ul class="list-group">
+            <li class="list-group-item"> จำนวนผู้ติดเชื้อวันนี้ : <span class="highlight"> {{list.new_case | number}}
+              </span> ราย</li>
+            <li class="list-group-item"> จำนวนผู้ติดเชื้อทั้งหมด :<span class="highlight"> {{list.total_case | number}}
+              </span> ราย</li>
+            <!-- <li class="list-group-item"> วันที่อัพเดทข้อมูล : {{list.update_date}} </li> -->
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <!-- จำนวนผู้ติดเชื้อวันนี้ : {{list.txn_date}} -->
+          <h2>รายงานสถานการณ์ COVID-19 ประจำวัน แยกตามรายจังหวัด</h2>
+          <dx-data-grid id="gridContainer" [dataSource]="_prov">
+            <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..."></dxo-search-panel>
+            <dxi-column dataField="province" caption="จังหวัด"></dxi-column>
+            <dxi-column dataField="new_case" caption="ผู้ป่วยใหม่"  [format]="{ type: 'fixedPoint', precision: 0 }"></dxi-column>
+            <dxi-column dataField="total_case" caption="ผู้ป่วยรวมทั้งหมด"  [format]="{ type: 'fixedPoint', precision: 0 }"></dxi-column>
+            <!-- <dxi-column dataField="update_date" caption="วันที่อัพเดทข้อมูล"></dxi-column> -->
+          </dx-data-grid>
+        </div>
+
+      </div>
+    </div>
+  </div>

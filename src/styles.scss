@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+@font-face {
+  font-family: Kanit;
+  src: url(assets/fonts/Kanit/Kanit-Regular.ttf) format('opentype');
+}
+
+*{
+    font-family: 'Kanit';
+    font-size: 20px;
+}
+.container{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card{
+  box-shadow: 4px 4px 4px 0px #b9b9b9;
+  margin-bottom: 0.5rem;
+}
+
+span.highlight{
+  font-size: 35px;
+  color: white;
+}
